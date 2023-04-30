@@ -1,4 +1,5 @@
 {
+	"homepage": "https://dmitrybdrv.github.io/todolist/",
 	"jest": {
 		"moduleNameMapper": {
 			"axios": "axios/dist/node/axios.cjs"
