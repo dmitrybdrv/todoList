@@ -1,5 +1,4 @@
 {
-	"homepage": "https://dmitrybdrv.github.io/todo/",
 	"jest": {
 		"moduleNameMapper": {
 			"axios": "axios/dist/node/axios.cjs"
