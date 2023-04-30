@@ -1,5 +1,4 @@
 {
-	"name": "todolist",
 	"homepage": "https://dmitrybdrv.github.io/todo/",
 	"jest": {
 		"moduleNameMapper": {
