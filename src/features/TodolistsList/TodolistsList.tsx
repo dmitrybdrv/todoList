@@ -16,17 +16,17 @@ export const TodolistsList = () => {
     const tasks = useSelector(selectTasks)
     const isLoggedIn = useSelector(selectIsLoggedIn)
 
-    const {addTodolist: addTodolistThunk, fetchTodolists} = useActions(todolistsThunks)
+    const {addTodolist, fetchTodolists} = useActions(todolistsThunks)
 
     useEffect(() => {
         if (!isLoggedIn) {
             return;
         }
-        fetchTodolists()
+        fetchTodolists({})
     }, [])
 
-    const addTodolist = useCallback((title: string) => {
-        addTodolistThunk(title)
+    const addTodolistHandler = useCallback((title: string) => {
+        addTodolist(title)
     }, [])
 
     if (!isLoggedIn) {
@@ -35,7 +35,7 @@ export const TodolistsList = () => {
 
     return <>
         <Grid container style={{padding: '20px'}}>
-            <AddItemForm addItem={addTodolist}/>
+            <AddItemForm addItem={addTodolistHandler}/>
         </Grid>
         <Grid container spacing={3}>
             {
