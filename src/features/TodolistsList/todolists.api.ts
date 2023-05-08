@@ -1,6 +1,6 @@
 import { instance } from 'common/api/common.api';
 import { TaskPriorities, TaskStatuses } from 'common/enums/common.enums';
-import { UpdateDomainTaskModelType } from 'features/TodolistsList/tasks.reducer';
+import { UpdateDomainTaskModelType } from 'features/TodolistsList/Todolist/Tasks/tasks.slice';
 import { ResponseType } from 'common/types';
 
 export const todolistsApi = {
@@ -43,8 +43,8 @@ export type TodolistType = {
 export type TaskType = {
 	description: string
 	title: string
-	status: TaskStatuses
-	priority: TaskPriorities
+	status: number
+	priority: number
 	startDate: string
 	deadline: string
 	id: string
@@ -56,8 +56,8 @@ export type TaskType = {
 export type UpdateTaskModelType = {
 	title: string
 	description: string
-	status: TaskStatuses
-	priority: TaskPriorities
+	status: number
+	priority: number
 	startDate: string
 	deadline: string
 }

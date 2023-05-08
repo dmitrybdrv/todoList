@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { appActions } from 'app/app.reducer';
+import { appActions } from 'app/app.slice';
 import { authAPI, LoginParamsType } from 'features/auth/auth.api';
 import { clearTasksAndTodolists } from 'common/actions';
 import { createAppAsyncThunk, handleServerAppError, handleServerNetworkError, thunkTryCatch } from 'common/utils';
@@ -75,7 +75,7 @@ const slice = createSlice({
 	}
 })
 
-export const authReducer = slice.reducer
+export const authSlice = slice.reducer
 export const authThunks = {login, logout, initializeApp}
 
 

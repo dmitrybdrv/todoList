@@ -1,17 +1,16 @@
-import { tasksReducer } from 'features/TodolistsList/tasks.reducer';
-import { todolistsReducer } from 'features/TodolistsList/todolists.reducer';
-import { AnyAction, combineReducers } from 'redux'
-import { ThunkAction, ThunkDispatch } from 'redux-thunk'
-import { appReducer } from 'app/app.reducer'
-import { authReducer } from 'features/auth/auth.reducer'
-import { configureStore } from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
+import {appSlice} from 'app/app.slice'
+import {authSlice} from 'features/auth/auth.slice'
+import {tasksSlice} from 'features/TodolistsList/Todolist/Tasks/tasks.slice';
+import {todolistsReducer} from 'features/TodolistsList/todolists.reducer';
+import {combineReducers} from 'redux'
 
 
 const rootReducer = combineReducers({
-	tasks: tasksReducer,
+	tasks: tasksSlice,
 	todolists: todolistsReducer,
-	app: appReducer,
-	auth: authReducer
+	app: appSlice,
+	auth: authSlice
 })
 
 export const store = configureStore({
@@ -19,9 +18,8 @@ export const store = configureStore({
 })
 
 
-export type AppRootStateType = ReturnType<typeof rootReducer>
-
-export type AppDispatch = ThunkDispatch<AppRootStateType, unknown, AnyAction>
+export type AppRootStateType = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
 
 // @ts-ignore
 window.store = store;
